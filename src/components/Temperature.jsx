@@ -4,34 +4,32 @@ import nightIcon from "../assets/animated/01n.svg";
 
 function Temperature({ stats }) {
   return (
-    <div className="flex justify-center m-10 flex-col">
-      <div className="text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
-        {stats.isDay == 0 ? (
-          <img src={nightIcon} alt="" className="" width={70} height={70} />
+    <div className="flex flex-col items-center justify-center m-10 space-y-5">
+      <div className="text-center text-white transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
+        {stats.isDay === 0 ? (
+          <img src={nightIcon} alt="" className="w-20 h-20" />
         ) : (
-          <img src={dayIcon} alt="" className="" width={70} height={70} />
+          <img src={dayIcon} alt="" className="w-20 h-20" />
         )}
       </div>
       {/* Temperature in Degree */}
-      <div className="mt-3 text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
-        <p className=" font-semibold text-[45px]">
+      <div className="text-center text-white transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
+        <p className="font-semibold text-4xl">
           {stats.temp}
-          <span>°C</span>
+          <span className="text-xl">°C</span>
         </p>
       </div>
 
       {/* Current Weather Condition */}
-      <div className="flex">
-        <div class="current-weather-description dynamic-data text-[25px] text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
-          {stats.condition}
-        </div>
-        <div><img src={`https:${stats.conditionIcon}`} alt="" width={40}/></div>
+      <div className="flex items-center justify-center space-x-2 text-lg text-white transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div className="current-weather-description dynamic-data">{stats.condition}</div>
+        <div><img src={`https:${stats.conditionIcon}`} alt="" className="w-10 h-10" /></div>
       </div>
 
-      <hr className="mt-5 border-white-500" />
+      <hr className="mt-5 border-white" />
 
-      {/* current location */}
-      <div class="current-location-container flex mt-5 space-x-2 text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
+      {/* Current Location */}
+      <div className="flex items-center justify-center space-x-2 text-lg text-white transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
         <svg
           width="24"
           height="24"
@@ -42,19 +40,19 @@ function Temperature({ stats }) {
           <path
             d="M20 11.1755C20 15.6907 16.4183 21 12 21C7.58172 21 4 15.6907 4 11.1755C4 6.66029 7.58172 3 12 3C16.4183 3 20 6.66029 20 11.1755Z"
             stroke="white"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></path>
           <path
             d="M9.5 10.5C9.5 9.11929 10.6193 8 12 8C13.3807 8 14.5 9.11929 14.5 10.5C14.5 11.8807 13.3807 13 12 13C10.6193 13 9.5 11.8807 9.5 10.5Z"
             stroke="white"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></path>
         </svg>
-        <div class="current-location dynamic-data">{stats.location}</div>
+        <div className="current-location dynamic-data">{stats.location}</div>
       </div>
 
-      {/* current date container */}
-      <div class="current-date-container flex mt-5 space-x-2 text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
+      {/* Current Date */}
+      <div className="flex items-center justify-center space-x-2 text-lg text-white transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
         <svg
           width="24"
           height="24"
@@ -71,7 +69,7 @@ function Temperature({ stats }) {
             fill="white"
           ></path>
         </svg>
-        <div class="current-date dynamic-data">{stats.time}</div>
+        <div className="current-date dynamic-data">{stats.time}</div>
       </div>
     </div>
   );
