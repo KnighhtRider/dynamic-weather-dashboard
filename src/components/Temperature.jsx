@@ -26,7 +26,7 @@ function Temperature({ stats }) {
         <div><img src={`https:${stats.conditionIcon}`} alt="" className="w-10 h-10" /></div>
       </div>
 
-      <hr className="mt-5 border-white" />
+     <hr className=" border w-full" />
 
       {/* Current Location */}
       <div className="flex items-center justify-center space-x-2 text-lg text-white transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
