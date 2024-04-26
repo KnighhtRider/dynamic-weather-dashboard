@@ -59,5 +59,11 @@ We welcome contributions from the community to enhance the Dynamic Weather Dashb
 5. Create a new Pull Request.
 
 
+## Screenshots
+
+![Dashboard Screenshot](screenshot/weather.png)
+
+
+
 ---
 
