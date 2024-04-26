@@ -1,6 +1,12 @@
 import React from "react";
 
-function Search() {
+function Search({setCity}) {
+
+  const handleCity = (e) => {
+    console.log(e.target.value);
+    setCity(e.target.value);
+  }
+
   return (
     <div className=" flex justify-center">
       <div className="relative w-1/2">
@@ -24,6 +30,8 @@ function Search() {
           type="text"
           className="bg-[#1E293B] border border-slate-500 text-slate-200 placeholder-slate-400 text-md focus:border-slate-400 block w-full p-2 pl-10 focus:outline-none rounded"
           placeholder="Noida"
+          onChange={handleCity}
+          defaultValue="Noida"
         />
       </div>
 

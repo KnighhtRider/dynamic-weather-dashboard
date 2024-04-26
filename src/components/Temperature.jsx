@@ -1,23 +1,31 @@
 import React from "react";
-import day from "../assets/animated/01d.svg";
+import dayIcon from "../assets/animated/01d.svg";
+import nightIcon from "../assets/animated/01n.svg";
 
-function Temperature() {
+function Temperature({ stats }) {
   return (
     <div className="flex justify-center m-10 flex-col">
       <div className="text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
-        <img src={day} alt="" className="" width={70} height={70} />
+        {stats.isDay == 0 ? (
+          <img src={nightIcon} alt="" className="" width={70} height={70} />
+        ) : (
+          <img src={dayIcon} alt="" className="" width={70} height={70} />
+        )}
       </div>
       {/* Temperature in Degree */}
       <div className="mt-3 text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
         <p className=" font-semibold text-[45px]">
-          33.7
+          {stats.temp}
           <span>°C</span>
         </p>
       </div>
 
       {/* Current Weather Condition */}
-      <div class="current-weather-description dynamic-data text-[25px] text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
-        Clear Sky
+      <div className="flex">
+        <div class="current-weather-description dynamic-data text-[25px] text-transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out">
+          {stats.condition}
+        </div>
+        <div><img src={`https:${stats.conditionIcon}`} alt="" width={40}/></div>
       </div>
 
       <hr className="mt-5 border-white-500" />
@@ -42,7 +50,7 @@ function Temperature() {
             stroke-width="1.5"
           ></path>
         </svg>
-        <div class="current-location dynamic-data">Aligarh</div>
+        <div class="current-location dynamic-data">{stats.location}</div>
       </div>
 
       {/* current date container */}
@@ -63,7 +71,7 @@ function Temperature() {
             fill="white"
           ></path>
         </svg>
-        <div class="current-date dynamic-data">25 April Thursday</div>
+        <div class="current-date dynamic-data">{stats.time}</div>
       </div>
     </div>
   );
